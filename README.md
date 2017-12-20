@@ -1,5 +1,5 @@
 # logest
-Excel LOGEST function implemented in Java. I use it to calculate growth rate.
+EXCEL's LOGEST function implemented in Java. I use it to calculate growth rate.
 
 It seems like there isn't a best way to determine growth rate (EPS, DPS, ...) calculation.
 
