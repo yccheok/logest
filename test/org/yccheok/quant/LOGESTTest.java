@@ -49,6 +49,14 @@ public class LOGESTTest {
         double expResult = 0.4165506277448576;
         double result = LOGEST.logest(y, x);
         assertEquals(expResult, result, 0.0);
+        
+        // https://docs.google.com/spreadsheets/d/1ff5rpk6bilrRlzaNAqgvMojVrAnQ3ItWZUW1YeQvymQ/edit#gid=0
+        y = new double[]{105.26, 114.95, 129.66, 138.29, 145.08, 149.75};
+        x = new double[]{2010, 2011, 2012, 2013, 2014, 2015};
+        
+        expResult = 0.0748233185947389;
+        result = LOGEST.logest(y, x);
+        assertEquals(expResult, result, 0.0);
     }
     
 }
