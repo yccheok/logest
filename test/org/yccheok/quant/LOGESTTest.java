@@ -57,6 +57,14 @@ public class LOGESTTest {
         expResult = 0.0748233185947389;
         result = LOGEST.logest(y, x);
         assertEquals(expResult, result, 0.0);
+        
+        // https://money.stackexchange.com/questions/88105/better-way-to-calculate-earning-growth-rate-to-have-quick-glance-on-company-earn
+        y = new double[]{1.0, 2.2, 3.5, 4.9, 6.0};
+        x = new double[]{2013, 2014, 2015, 2016, 2017};
+        
+        expResult = 0.5502708821214857;
+        result = LOGEST.logest(y, x);
+        assertEquals(expResult, result, 0.0);
     }
     
 }
