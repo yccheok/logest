@@ -69,7 +69,7 @@ public class LOGESTTest {
         y = new double[]{1.0, 0.5, 0.4, 0.3, 6.0};
         x = new double[]{2013, 2014, 2015, 2016, 2017};
         
-        expResult = 0.5502708821214857;
+        expResult = 0.3597071306791;
         result = LOGEST.logest(y, x);
         assertEquals(expResult, result, 0.0);
     }
