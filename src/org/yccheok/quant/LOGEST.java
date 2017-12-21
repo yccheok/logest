@@ -14,15 +14,15 @@ public class LOGEST {
         final int length = y.length;
         
         if (length <= 0) {
-            throw new java.lang.IllegalArgumentException();
+            return Double.NaN;
         }
         
         if (x.length <= 0) {
-            throw new java.lang.IllegalArgumentException();
+            return Double.NaN;
         }
         
         if (x.length != length) {
-            throw new java.lang.IllegalArgumentException();
+            return Double.NaN;
         }
 
         double[] log10_y = new double[length];
@@ -56,7 +56,13 @@ public class LOGEST {
         double sum_xx = sum(xx);
         double sum_x_sum_x = sum_x * sum_x;
         
-        double m = (length * sum_xy - sum_x * sum_y) / (length * sum_xx - sum_x_sum_x);
+        final double denominator = (length * sum_xx - sum_x_sum_x);
+        
+        if (denominator == 0.0) {
+            return Double.NaN;
+        }
+        
+        double m = (length * sum_xy - sum_x * sum_y) / denominator;
         
         return m;
     }
