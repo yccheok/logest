@@ -5,11 +5,58 @@
  */
 package org.yccheok.quant;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author yccheok
  */
 public class LOGEST {
+    private static double[] convertDoubles(List<Double> doubles)
+    {
+        double[] vals = new double[doubles.size()];
+        int i = 0;
+        for (Double d : doubles) {
+            vals[i++] = d;
+        }
+        return vals;
+    }
+
+    public static double growth_rate(double[] y, double[] x) {
+        final int length = y.length;
+        
+        if (length <= 1) {
+            return Double.NaN;
+        }
+        
+        if (x.length <= 1) {
+            return Double.NaN;
+        }
+        
+        if (x.length != length) {
+            return Double.NaN;
+        }
+        
+        ArrayList<Double> _y = new ArrayList<Double>();
+        ArrayList<Double> _x = new ArrayList<Double>();
+        
+        for (int i=0; i<length; i++) {
+            double y_value = y[i];
+            
+            if (y_value <= 0) {
+                continue;
+            }
+            
+            _y.add(y_value);
+            _x.add(x[i]);
+        }
+                
+        double growthRate = logest(convertDoubles(_y), convertDoubles(_x));
+        
+        return growthRate;
+    }
+    
     public static double logest(double[] y, double[] x) {
         final int length = y.length;
         
